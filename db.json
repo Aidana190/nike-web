@@ -1,4 +1,12 @@
 {
-    "products":[],
-    "categories":[]
+  "products": [
+    {
+      "id": "2c85",
+      "title": "Nike",
+      "category": "",
+      "price": 123,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WKSeSjU_xX1vvc2CrdeKlFYShX1Qgjh9Fw&usqp=CAU"
+    }
+  ],
+  "categories": []
 }

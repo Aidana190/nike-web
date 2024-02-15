@@ -1,14 +1,14 @@
-import React from 'react'
-import Navbar from './components/homePage/Navbar'
-import MainRoutes from './routes/MainRoutes'
+import React from "react";
+import Navbar from "./components/homePage/Navbar";
+import MainRoutes from "./routes/MainRoutes";
 
 const App = () => {
   return (
     <div>
-      <Navbar/>
-      <MainRoutes/>
+      <Navbar />
+      <MainRoutes />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

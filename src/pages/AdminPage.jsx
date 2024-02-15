@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+import "./pages.scss";
+import AddProducts from "../components/product/AddProducts";
 
 const AdminPage = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <AddProducts />
+    </>
+  );
+};
 
-export default AdminPage
+export default AdminPage;

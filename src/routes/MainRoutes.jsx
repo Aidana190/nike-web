@@ -20,7 +20,7 @@ const MainRoutes = () => {
     ]
   return (
     <Routes>
-        {PUBLI.C_ROUTES.map((elem) => (
+        {PUBLIC_ROUTES.map((elem) => (
           <Route path={elem.link} key={elem.id} element={elem.element} />
         ))}
     </Routes>

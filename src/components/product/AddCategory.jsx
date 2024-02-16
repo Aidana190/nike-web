@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useProduct } from "../context/ProductContextProvider";
 
 const AddCategory = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const { createCategory } = useProduct();
 
-export default AddCategory
+  return <></>;
+};
+
+export default AddCategory;

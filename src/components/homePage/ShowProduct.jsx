@@ -1,5 +1,6 @@
 import React from "react";
 import sneakers from "./assets/360.png";
+import { NavLink } from "react-router-dom";
 
 const ShowProduct = () => {
   return (
@@ -16,7 +17,9 @@ const ShowProduct = () => {
           </div>
           <div className="show-product-right-content__description">
             <p>$275</p>
-            <button>More Details</button>
+            <NavLink to={"/products"}>
+              <button>More Details</button>
+            </NavLink>
           </div>
         </div>
       </div>

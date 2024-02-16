@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useProduct } from "../components/context/ProductContextProvider";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "./pages.scss";
 
 const CategoryWomanPage = () => {
-  const { getProduct, products } = useProduct();
+  const { getProduct, products, deleteProducts } = useProduct();
+  const navigate = useNavigate();
+
   const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
     getProduct();
@@ -22,8 +24,10 @@ const CategoryWomanPage = () => {
                   <h2>{elem.title}</h2>
                   <p>{elem.price} $</p>
                 </div>
-                <button>DELETE</button>
-                <button>EDIT</button>
+                <button onClick={() => deleteProducts(elem.id)}>DELETE</button>
+                <button onClick={() => navigate(`/edit/${elem.id}`)}>
+                  EDIT
+                </button>
               </div>
             )
         )}

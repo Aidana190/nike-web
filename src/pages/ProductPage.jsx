@@ -1,12 +1,14 @@
-import React from 'react'
-import ProductList from '../components/product/ProductList'
+import React from "react";
+import ProductList from "../components/product/ProductList";
+import SideBar from "../components/product/SideBar";
 
 const ProductPage = () => {
   return (
     <div>
-      <ProductList/>
+      <ProductList />
+      {/* <SideBar /> */}
     </div>
-  )
-}
+  );
+};
 
-export default ProductPage
+export default ProductPage;

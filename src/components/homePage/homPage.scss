@@ -97,3 +97,74 @@
     }
   }
 }
+
+.about {
+  background-color: black;
+  height: 100wh;
+  margin: 0;
+}
+
+.about-website {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+}
+.about-website-title {
+}
+.about-website-title__description {
+  text-align: center;
+  p {
+    line-height: 50px;
+    margin-top: 70px;
+    font-weight: 300;
+    font-style: initial;
+    color: white;
+    font-size: 18px;
+  }
+
+  button {
+    width: 175px;
+    height: 48px;
+    margin-top: 40px;
+    font-size: 20px;
+    color: wheat;
+    background-color: inherit;
+    border: 1px solid white;
+    border-radius: 20px;
+  }
+}
+
+.topSelling {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  .topSelling__title {
+    h2 {
+      color: #fff;
+      font-size: 50px;
+    }
+  }
+
+  .topSelling__category {
+    img {
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  }
+}
+#skeakers {
+}
+
+.sportTime {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+
+  img {
+    margin-top: 150px;
+  }
+}

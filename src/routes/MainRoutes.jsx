@@ -7,6 +7,10 @@ import AuthPage from "../pages/AuthPage";
 import AdminPage from "../pages/AdminPage";
 import EditPage from "../pages/EditPage";
 import { Route, Routes } from "react-router-dom";
+import { Man } from "@mui/icons-material";
+import CategoryManPage from "../pages/CategoryManPage";
+import CategoryWomanPage from "../pages/CategoryWomanPage";
+import CategoryKidsPage from "../pages/CategoryKidsPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -17,6 +21,9 @@ const MainRoutes = () => {
     { id: 5, link: "/auth", element: <AuthPage /> },
     { id: 6, link: "/admin", element: <AdminPage /> },
     { id: 7, link: "/edit/:id", element: <EditPage /> },
+    { id: 8, link: "/mans", element: <CategoryManPage /> },
+    { id: 9, link: "/woman", element: <CategoryWomanPage /> },
+    { id: 10, link: "/kid", element: <CategoryKidsPage /> },
   ];
   return (
     <Routes>

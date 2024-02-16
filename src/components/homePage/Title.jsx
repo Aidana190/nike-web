@@ -31,7 +31,19 @@ const Title = () => {
             <button>Found Out More</button>
           </div>
         </div>
-        <img id="skeakers" src={sneakers} alt="" />
+        <div className="photo-content">
+          <img id="skeakers" src={sneakers} alt="" />
+          <div className="photo-content__title">
+            <h2>
+              YEZZY 700 <br /> MODERN HIGH
+            </h2>
+            <p>$399</p>
+            <NavLink to={"/products"}>
+              <button>MORE DETAILS</button>
+            </NavLink>
+          </div>
+        </div>
+
         <div className="topSelling">
           <div className="topSelling__title">
             <h2>BEST SELLERS</h2>

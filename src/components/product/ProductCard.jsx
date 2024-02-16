@@ -9,6 +9,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router-dom";
 import CommentIcon from '@mui/icons-material/Comment';
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 const ProductCard = ({ elem , onFavoriteClick  }) => {
   const { deleteProducts, increaseLikes  } = useProduct();
@@ -80,6 +81,20 @@ const ProductCard = ({ elem , onFavoriteClick  }) => {
           onClick={()=> addProductToCart(elem)}/>
          </IconButton>
     </div>
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <div className="cards">
+        <div onClick={() => setIsOpen(true)} className="cards__card">
+          <img style={{ width: 180 }} src={elem.image} alt="" />
+          <h2>{elem.title}</h2>
+          <p>{elem.price} $</p>
+        </div>
+        <button onClick={() => deleteProducts(elem.id)}>Delete</button>
+        <button onClick={() => navigate(`/edit/${elem.id}`)}>Edit</button>
+      </div>
+    </>
   );
 };
 

@@ -9,6 +9,10 @@ import EditPage from "../pages/EditPage";
 import { Route, Routes } from "react-router-dom";
 import BookMarksPage from "../pages/BookMarksPage";
 import Comments from "../components/Comments/Comments";
+import { Man } from "@mui/icons-material";
+import CategoryManPage from "../pages/CategoryManPage";
+import CategoryWomanPage from "../pages/CategoryWomanPage";
+import CategoryKidsPage from "../pages/CategoryKidsPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -21,6 +25,11 @@ const MainRoutes = () => {
     { id: 7, link: "/edit/:id", element: <EditPage /> },
     { id: 8, link: "/bm", element: <BookMarksPage/> },
     { id: 9, link: "/comments", element: <Comments/> },
+
+    { id: 10, link: "/mans", element: <CategoryManPage /> },
+    { id: 11, link: "/woman", element: <CategoryWomanPage /> },
+    { id: 12, link: "/kid", element: <CategoryKidsPage /> },
+
   ];
   return (
     <Routes>

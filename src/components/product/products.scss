@@ -4,10 +4,13 @@
   flex-wrap: wrap;
   justify-content: center;
   background-color: color(display-p3 0.2235 0.2235 0.2235);
-  height: 100vh;
+  height: 100wh;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .cards {
+  margin-right: 20px;
   .cards__card {
     border: 1px solid white;
     border-radius: 10px;
@@ -33,5 +36,20 @@
     background-color: inherit;
     margin-top: 20px;
     border: 1px solid white;
+    cursor: pointer;
+  }
+}
+
+.container-cards {
+  background-color: color(display-p3 0.2235 0.2235 0.2235);
+  position: relative;
+  margin: 0;
+  height: 100vh;
+  span {
+    font-style: italic;
+    margin-left: 100px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 40px;
   }
 }

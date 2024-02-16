@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { ACTIONS, API } from "../../helpers/const";
+import { ACTIONS, API, API_CATEGORIES } from "../../helpers/const";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 export const productContext = createContext();
@@ -20,6 +20,11 @@ const ProductContextProvider = ({ children }) => {
         return { ...state, products: action.payload };
         case ACTIONS.INCREASE_LIKES:
           return { ...state, likesCount: state.likesCount + 1 };
+      case ACTIONS.GET_ONE_PRODUCT:
+        return { ...state, oneProduct: action.payload };
+      case ACTIONS.GET_CATEGORIES:
+        return { ...state, product: action.payload };
+
     }
   };
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
@@ -30,11 +35,12 @@ const ProductContextProvider = ({ children }) => {
   };
   // ! GET
   const getProduct = async () => {
-    const { data } = await axios(`${API}${window.location.search}`);
+    const res = await axios(`${API}${window.location.search}`);
     console.log(window.location.search);
+    console.log(res);
     dispatch({
       type: ACTIONS.GET_PRODUCTS,
-      payload: data,
+      payload: res.data,
     });
   };
   // ! DELATE
@@ -42,15 +48,53 @@ const ProductContextProvider = ({ children }) => {
     await axios.delete(`${API}/${id}`);
     getProduct();
   };
+
   
 //!likes
 const increaseLikes = () => {
   dispatch({ type: ACTIONS.INCREASE_LIKES });
 };
 
+  // ! GET_ONE_PRODUCT
+  const getOneProduct = async (id) => {
+    const { data } = await axios(`${API}/${id}`);
+    console.log(data);
+    dispatch({
+      type: ACTIONS.GET_ONE_PRODUCT,
+      payload: data,
+    });
+  };
+  // ! EDIT
+  const editProduct = async (id, editProduct) => {
+    await axios.patch(`${API}/${id}`, editProduct);
+    navigate("/products");
+  };
+
+  // ! CREATE_CATEGORY
+  const createCategory = async (newCategory) => {
+    await axios.post(API, newCategory);
+  };
+
+  //! FILTER
+  const fetchByParams = (query, value) => {
+    console.log(query, value);
+    const search = new URLSearchParams(window.location.search);
+    if (value === "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+    console.log(search);
+    const url = `${window.location.pathname}?${search}`;
+    navigate(url);
+  };
   const values = {
     products: state.products,
     oneProduct: state.oneProduct,
+    createCategory,
+    fetchByParams,
+    editProduct,
+    getOneProduct,
     deleteProducts,
     addProduct,
     getProduct,

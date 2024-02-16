@@ -19,9 +19,9 @@ const Navbar = () => {
             <NavLink to={"/products"}>
               <a href="">NEW ARRIVAL</a>
             </NavLink>
-            <a href="">MEN</a>
-            <a href="">WOMEN</a>
-            <a href="">KIDS</a>
+            <a href="/mans">MEN</a>
+            <a href="/woman">WOMEN</a>
+            <a href="kid">KIDS</a>
           </div>
           <div className="header-center-content">
             <NavLink to={"/"}>

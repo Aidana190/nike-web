@@ -7,9 +7,8 @@ import { useBM } from "../context/BMProvider";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CommentIcon from '@mui/icons-material/Comment';
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 const ProductCard = ({ elem , onFavoriteClick  }) => {
   const { deleteProducts, increaseLikes  } = useProduct();
@@ -24,7 +23,7 @@ const ProductCard = ({ elem , onFavoriteClick  }) => {
     const storedLikes = localStorage.getItem(`likes_${elem.id}`);
     setIsFavorite(storedLikes === "true");
   }, [elem.id]);
-
+  const navigate = useNavigate();
   const handleClick = () => {
     setIsFavorite((prev) => !prev);
   };
@@ -74,27 +73,13 @@ const ProductCard = ({ elem , onFavoriteClick  }) => {
           </IconButton>
       </div>
       <button onClick={() => deleteProducts(elem.id)}>Delete</button>
-      <button>Edit</button>
+      <button onClick={() => navigate(`/edit/${elem.id}`)}>Edit</button>
       <IconButton sx={{marginBottom:"20px"}}>
           <AddShoppingCart sx={{backgroundColor: checkProductInCart(elem.id) ? "black" : "", 
          color: checkProductInCart(elem.id)? "white": "",}}
           onClick={()=> addProductToCart(elem)}/>
          </IconButton>
     </div>
-  const navigate = useNavigate();
-
-  return (
-    <>
-      <div className="cards">
-        <div onClick={() => setIsOpen(true)} className="cards__card">
-          <img style={{ width: 180 }} src={elem.image} alt="" />
-          <h2>{elem.title}</h2>
-          <p>{elem.price} $</p>
-        </div>
-        <button onClick={() => deleteProducts(elem.id)}>Delete</button>
-        <button onClick={() => navigate(`/edit/${elem.id}`)}>Edit</button>
-      </div>
-    </>
   );
 };
 

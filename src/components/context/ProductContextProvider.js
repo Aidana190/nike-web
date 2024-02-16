@@ -9,6 +9,7 @@ const INIT_STATE = {
   products: [],
   oneProduct: {},
   category: [],
+  likesCount: 0,
 };
 
 const ProductContextProvider = ({ children }) => {
@@ -17,6 +18,8 @@ const ProductContextProvider = ({ children }) => {
     switch (action.type) {
       case ACTIONS.GET_PRODUCTS:
         return { ...state, products: action.payload };
+        case ACTIONS.INCREASE_LIKES:
+          return { ...state, likesCount: state.likesCount + 1 };
     }
   };
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
@@ -39,12 +42,20 @@ const ProductContextProvider = ({ children }) => {
     await axios.delete(`${API}/${id}`);
     getProduct();
   };
+  
+//!likes
+const increaseLikes = () => {
+  dispatch({ type: ACTIONS.INCREASE_LIKES });
+};
+
   const values = {
     products: state.products,
     oneProduct: state.oneProduct,
     deleteProducts,
     addProduct,
     getProduct,
+    likesCount: state.likesCount,
+    increaseLikes,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>

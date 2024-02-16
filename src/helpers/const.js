@@ -8,3 +8,4 @@ export const ACTIONS = {
   GET_CART: "GET_CART",
   GET_BM: "GET_BM",
 };
+export const ADMIN = "admin@gmail.com"

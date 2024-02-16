@@ -9,8 +9,29 @@ import { Badge, IconButton, MenuItem, Typography } from "@mui/material";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { useProduct } from "../context/ProductContextProvider";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useAuth } from "../context/AuthContextProvider";
+import { ADMIN } from "../../helpers/const";
+
 const Navbar = () => {
+  const {user, handleLogOut} = useAuth()
   const { likesCount } = useProduct();
+  const [badgeCount, setBadgeCount] = React.useState(0);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
   return (
     <>
       <div className="container">
@@ -40,7 +61,12 @@ const Navbar = () => {
           <Link to={"/cart"}>
           <img style={{ width: 25 }} src={cartIcon} alt="" />
           </Link>
-            <img style={{ width: 22 }} src={personIcon} alt="" />
+          {user.email === ADMIN ? (
+            <Link  to={"/admin"}>
+              <img onClick={handleCloseNavMenu} style={{ width: 22 }} src={personIcon} alt="" />
+            </Link>
+          ) : null}
+            
           </div>
         </header>
       </div>
